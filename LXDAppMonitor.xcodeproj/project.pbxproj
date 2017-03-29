@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF82D86E1E8B8E9600DD4776 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D86D1E8B8E9600DD4776 /* main.m */; };
+		EF82D8711E8B8E9600DD4776 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8701E8B8E9600DD4776 /* AppDelegate.m */; };
+		EF82D8741E8B8E9600DD4776 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8731E8B8E9600DD4776 /* ViewController.m */; };
+		EF82D8771E8B8E9600DD4776 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF82D8751E8B8E9600DD4776 /* Main.storyboard */; };
+		EF82D8791E8B8E9600DD4776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF82D8781E8B8E9600DD4776 /* Assets.xcassets */; };
+		EF82D87C1E8B8E9600DD4776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF82D87A1E8B8E9600DD4776 /* LaunchScreen.storyboard */; };
+		EF82D8871E8B8E9600DD4776 /* LXDAppMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8861E8B8E9600DD4776 /* LXDAppMonitorTests.m */; };
+		EF82D8921E8B8E9600DD4776 /* LXDAppMonitorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8911E8B8E9600DD4776 /* LXDAppMonitorUITests.m */; };
+		EF82D8B51E8B8EA800DD4776 /* LXDBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8A21E8B8EA800DD4776 /* LXDBacktraceLogger.m */; };
+		EF82D8B61E8B8EA800DD4776 /* LXDCrashMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8A51E8B8EA800DD4776 /* LXDCrashMonitor.m */; };
+		EF82D8B71E8B8EA800DD4776 /* LXDAppFluencyMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8A81E8B8EA800DD4776 /* LXDAppFluencyMonitor.m */; };
+		EF82D8B81E8B8EA800DD4776 /* LXDFPSDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8AB1E8B8EA800DD4776 /* LXDFPSDisplayer.m */; };
+		EF82D8B91E8B8EA800DD4776 /* LXDFPSMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8AD1E8B8EA800DD4776 /* LXDFPSMonitor.m */; };
+		EF82D8BA1E8B8EA800DD4776 /* LXDWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8AF1E8B8EA800DD4776 /* LXDWeakProxy.m */; };
+		EF82D8BB1E8B8EA800DD4776 /* LXDDNSInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8B21E8B8EA800DD4776 /* LXDDNSInterceptor.m */; };
+		EF82D8BC1E8B8EA800DD4776 /* LXDHostMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8B41E8B8EA800DD4776 /* LXDHostMapper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF82D8831E8B8E9600DD4776 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF82D8611E8B8E9600DD4776 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF82D8681E8B8E9600DD4776;
+			remoteInfo = LXDAppMonitor;
+		};
+		EF82D88E1E8B8E9600DD4776 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF82D8611E8B8E9600DD4776 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF82D8681E8B8E9600DD4776;
+			remoteInfo = LXDAppMonitor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF82D8691E8B8E9600DD4776 /* LXDAppMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LXDAppMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF82D86D1E8B8E9600DD4776 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF82D86F1E8B8E9600DD4776 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EF82D8701E8B8E9600DD4776 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EF82D8721E8B8E9600DD4776 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EF82D8731E8B8E9600DD4776 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EF82D8761E8B8E9600DD4776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF82D8781E8B8E9600DD4776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF82D87B1E8B8E9600DD4776 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EF82D87D1E8B8E9600DD4776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF82D8821E8B8E9600DD4776 /* LXDAppMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LXDAppMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF82D8861E8B8E9600DD4776 /* LXDAppMonitorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXDAppMonitorTests.m; sourceTree = "<group>"; };
+		EF82D8881E8B8E9600DD4776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF82D88D1E8B8E9600DD4776 /* LXDAppMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LXDAppMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF82D8911E8B8E9600DD4776 /* LXDAppMonitorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXDAppMonitorUITests.m; sourceTree = "<group>"; };
+		EF82D8931E8B8E9600DD4776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF82D8A11E8B8EA800DD4776 /* LXDBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDBacktraceLogger.h; sourceTree = "<group>"; };
+		EF82D8A21E8B8EA800DD4776 /* LXDBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDBacktraceLogger.m; sourceTree = "<group>"; };
+		EF82D8A41E8B8EA800DD4776 /* LXDCrashMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDCrashMonitor.h; sourceTree = "<group>"; };
+		EF82D8A51E8B8EA800DD4776 /* LXDCrashMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDCrashMonitor.m; sourceTree = "<group>"; };
+		EF82D8A71E8B8EA800DD4776 /* LXDAppFluencyMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDAppFluencyMonitor.h; sourceTree = "<group>"; };
+		EF82D8A81E8B8EA800DD4776 /* LXDAppFluencyMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDAppFluencyMonitor.m; sourceTree = "<group>"; };
+		EF82D8AA1E8B8EA800DD4776 /* LXDFPSDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDFPSDisplayer.h; sourceTree = "<group>"; };
+		EF82D8AB1E8B8EA800DD4776 /* LXDFPSDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDFPSDisplayer.m; sourceTree = "<group>"; };
+		EF82D8AC1E8B8EA800DD4776 /* LXDFPSMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDFPSMonitor.h; sourceTree = "<group>"; };
+		EF82D8AD1E8B8EA800DD4776 /* LXDFPSMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDFPSMonitor.m; sourceTree = "<group>"; };
+		EF82D8AE1E8B8EA800DD4776 /* LXDWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDWeakProxy.h; sourceTree = "<group>"; };
+		EF82D8AF1E8B8EA800DD4776 /* LXDWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDWeakProxy.m; sourceTree = "<group>"; };
+		EF82D8B11E8B8EA800DD4776 /* LXDDNSInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDDNSInterceptor.h; sourceTree = "<group>"; };
+		EF82D8B21E8B8EA800DD4776 /* LXDDNSInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDDNSInterceptor.m; sourceTree = "<group>"; };
+		EF82D8B31E8B8EA800DD4776 /* LXDHostMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDHostMapper.h; sourceTree = "<group>"; };
+		EF82D8B41E8B8EA800DD4776 /* LXDHostMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDHostMapper.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF82D8661E8B8E9600DD4776 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF82D87F1E8B8E9600DD4776 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF82D88A1E8B8E9600DD4776 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF82D8601E8B8E9600DD4776 = {
+			isa = PBXGroup;
+			children = (
+				EF82D86B1E8B8E9600DD4776 /* LXDAppMonitor */,
+				EF82D8851E8B8E9600DD4776 /* LXDAppMonitorTests */,
+				EF82D8901E8B8E9600DD4776 /* LXDAppMonitorUITests */,
+				EF82D86A1E8B8E9600DD4776 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF82D86A1E8B8E9600DD4776 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8691E8B8E9600DD4776 /* LXDAppMonitor.app */,
+				EF82D8821E8B8E9600DD4776 /* LXDAppMonitorTests.xctest */,
+				EF82D88D1E8B8E9600DD4776 /* LXDAppMonitorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF82D86B1E8B8E9600DD4776 /* LXDAppMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D89F1E8B8EA800DD4776 /* LXDAppMonitor */,
+				EF82D86F1E8B8E9600DD4776 /* AppDelegate.h */,
+				EF82D8701E8B8E9600DD4776 /* AppDelegate.m */,
+				EF82D8721E8B8E9600DD4776 /* ViewController.h */,
+				EF82D8731E8B8E9600DD4776 /* ViewController.m */,
+				EF82D8751E8B8E9600DD4776 /* Main.storyboard */,
+				EF82D8781E8B8E9600DD4776 /* Assets.xcassets */,
+				EF82D87A1E8B8E9600DD4776 /* LaunchScreen.storyboard */,
+				EF82D87D1E8B8E9600DD4776 /* Info.plist */,
+				EF82D86C1E8B8E9600DD4776 /* Supporting Files */,
+			);
+			path = LXDAppMonitor;
+			sourceTree = "<group>";
+		};
+		EF82D86C1E8B8E9600DD4776 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D86D1E8B8E9600DD4776 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF82D8851E8B8E9600DD4776 /* LXDAppMonitorTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8861E8B8E9600DD4776 /* LXDAppMonitorTests.m */,
+				EF82D8881E8B8E9600DD4776 /* Info.plist */,
+			);
+			path = LXDAppMonitorTests;
+			sourceTree = "<group>";
+		};
+		EF82D8901E8B8E9600DD4776 /* LXDAppMonitorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8911E8B8E9600DD4776 /* LXDAppMonitorUITests.m */,
+				EF82D8931E8B8E9600DD4776 /* Info.plist */,
+			);
+			path = LXDAppMonitorUITests;
+			sourceTree = "<group>";
+		};
+		EF82D89F1E8B8EA800DD4776 /* LXDAppMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8A01E8B8EA800DD4776 /* Backtrace */,
+				EF82D8A31E8B8EA800DD4776 /* Crash */,
+				EF82D8A61E8B8EA800DD4776 /* Fluency */,
+				EF82D8A91E8B8EA800DD4776 /* FPS */,
+				EF82D8B01E8B8EA800DD4776 /* Intercept */,
+			);
+			path = LXDAppMonitor;
+			sourceTree = "<group>";
+		};
+		EF82D8A01E8B8EA800DD4776 /* Backtrace */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8A11E8B8EA800DD4776 /* LXDBacktraceLogger.h */,
+				EF82D8A21E8B8EA800DD4776 /* LXDBacktraceLogger.m */,
+			);
+			path = Backtrace;
+			sourceTree = "<group>";
+		};
+		EF82D8A31E8B8EA800DD4776 /* Crash */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8A41E8B8EA800DD4776 /* LXDCrashMonitor.h */,
+				EF82D8A51E8B8EA800DD4776 /* LXDCrashMonitor.m */,
+			);
+			path = Crash;
+			sourceTree = "<group>";
+		};
+		EF82D8A61E8B8EA800DD4776 /* Fluency */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8A71E8B8EA800DD4776 /* LXDAppFluencyMonitor.h */,
+				EF82D8A81E8B8EA800DD4776 /* LXDAppFluencyMonitor.m */,
+			);
+			path = Fluency;
+			sourceTree = "<group>";
+		};
+		EF82D8A91E8B8EA800DD4776 /* FPS */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8AA1E8B8EA800DD4776 /* LXDFPSDisplayer.h */,
+				EF82D8AB1E8B8EA800DD4776 /* LXDFPSDisplayer.m */,
+				EF82D8AC1E8B8EA800DD4776 /* LXDFPSMonitor.h */,
+				EF82D8AD1E8B8EA800DD4776 /* LXDFPSMonitor.m */,
+				EF82D8AE1E8B8EA800DD4776 /* LXDWeakProxy.h */,
+				EF82D8AF1E8B8EA800DD4776 /* LXDWeakProxy.m */,
+			);
+			path = FPS;
+			sourceTree = "<group>";
+		};
+		EF82D8B01E8B8EA800DD4776 /* Intercept */ = {
+			isa = PBXGroup;
+			children = (
+				EF82D8B11E8B8EA800DD4776 /* LXDDNSInterceptor.h */,
+				EF82D8B21E8B8EA800DD4776 /* LXDDNSInterceptor.m */,
+				EF82D8B31E8B8EA800DD4776 /* LXDHostMapper.h */,
+				EF82D8B41E8B8EA800DD4776 /* LXDHostMapper.m */,
+			);
+			path = Intercept;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF82D8681E8B8E9600DD4776 /* LXDAppMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF82D8961E8B8E9600DD4776 /* Build configuration list for PBXNativeTarget "LXDAppMonitor" */;
+			buildPhases = (
+				EF82D8651E8B8E9600DD4776 /* Sources */,
+				EF82D8661E8B8E9600DD4776 /* Frameworks */,
+				EF82D8671E8B8E9600DD4776 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LXDAppMonitor;
+			productName = LXDAppMonitor;
+			productReference = EF82D8691E8B8E9600DD4776 /* LXDAppMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF82D8811E8B8E9600DD4776 /* LXDAppMonitorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF82D8991E8B8E9600DD4776 /* Build configuration list for PBXNativeTarget "LXDAppMonitorTests" */;
+			buildPhases = (
+				EF82D87E1E8B8E9600DD4776 /* Sources */,
+				EF82D87F1E8B8E9600DD4776 /* Frameworks */,
+				EF82D8801E8B8E9600DD4776 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF82D8841E8B8E9600DD4776 /* PBXTargetDependency */,
+			);
+			name = LXDAppMonitorTests;
+			productName = LXDAppMonitorTests;
+			productReference = EF82D8821E8B8E9600DD4776 /* LXDAppMonitorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF82D88C1E8B8E9600DD4776 /* LXDAppMonitorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF82D89C1E8B8E9600DD4776 /* Build configuration list for PBXNativeTarget "LXDAppMonitorUITests" */;
+			buildPhases = (
+				EF82D8891E8B8E9600DD4776 /* Sources */,
+				EF82D88A1E8B8E9600DD4776 /* Frameworks */,
+				EF82D88B1E8B8E9600DD4776 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF82D88F1E8B8E9600DD4776 /* PBXTargetDependency */,
+			);
+			name = LXDAppMonitorUITests;
+			productName = LXDAppMonitorUITests;
+			productReference = EF82D88D1E8B8E9600DD4776 /* LXDAppMonitorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF82D8611E8B8E9600DD4776 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Jolimark;
+				TargetAttributes = {
+					EF82D8681E8B8E9600DD4776 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 7J57ACJ383;
+						ProvisioningStyle = Automatic;
+					};
+					EF82D8811E8B8E9600DD4776 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 7J57ACJ383;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EF82D8681E8B8E9600DD4776;
+					};
+					EF82D88C1E8B8E9600DD4776 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = 7J57ACJ383;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EF82D8681E8B8E9600DD4776;
+					};
+				};
+			};
+			buildConfigurationList = EF82D8641E8B8E9600DD4776 /* Build configuration list for PBXProject "LXDAppMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF82D8601E8B8E9600DD4776;
+			productRefGroup = EF82D86A1E8B8E9600DD4776 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF82D8681E8B8E9600DD4776 /* LXDAppMonitor */,
+				EF82D8811E8B8E9600DD4776 /* LXDAppMonitorTests */,
+				EF82D88C1E8B8E9600DD4776 /* LXDAppMonitorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF82D8671E8B8E9600DD4776 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF82D87C1E8B8E9600DD4776 /* LaunchScreen.storyboard in Resources */,
+				EF82D8791E8B8E9600DD4776 /* Assets.xcassets in Resources */,
+				EF82D8771E8B8E9600DD4776 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF82D8801E8B8E9600DD4776 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF82D88B1E8B8E9600DD4776 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF82D8651E8B8E9600DD4776 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF82D8741E8B8E9600DD4776 /* ViewController.m in Sources */,
+				EF82D8711E8B8E9600DD4776 /* AppDelegate.m in Sources */,
+				EF82D8BB1E8B8EA800DD4776 /* LXDDNSInterceptor.m in Sources */,
+				EF82D8BA1E8B8EA800DD4776 /* LXDWeakProxy.m in Sources */,
+				EF82D8B71E8B8EA800DD4776 /* LXDAppFluencyMonitor.m in Sources */,
+				EF82D8B91E8B8EA800DD4776 /* LXDFPSMonitor.m in Sources */,
+				EF82D8B61E8B8EA800DD4776 /* LXDCrashMonitor.m in Sources */,
+				EF82D8B81E8B8EA800DD4776 /* LXDFPSDisplayer.m in Sources */,
+				EF82D86E1E8B8E9600DD4776 /* main.m in Sources */,
+				EF82D8B51E8B8EA800DD4776 /* LXDBacktraceLogger.m in Sources */,
+				EF82D8BC1E8B8EA800DD4776 /* LXDHostMapper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF82D87E1E8B8E9600DD4776 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF82D8871E8B8E9600DD4776 /* LXDAppMonitorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF82D8891E8B8E9600DD4776 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF82D8921E8B8E9600DD4776 /* LXDAppMonitorUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF82D8841E8B8E9600DD4776 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF82D8681E8B8E9600DD4776 /* LXDAppMonitor */;
+			targetProxy = EF82D8831E8B8E9600DD4776 /* PBXContainerItemProxy */;
+		};
+		EF82D88F1E8B8E9600DD4776 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF82D8681E8B8E9600DD4776 /* LXDAppMonitor */;
+			targetProxy = EF82D88E1E8B8E9600DD4776 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF82D8751E8B8E9600DD4776 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF82D8761E8B8E9600DD4776 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF82D87A1E8B8E9600DD4776 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF82D87B1E8B8E9600DD4776 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF82D8941E8B8E9600DD4776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EF82D8951E8B8E9600DD4776 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF82D8971E8B8E9600DD4776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7J57ACJ383;
+				INFOPLIST_FILE = LXDAppMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jolimark.com.LXDAppMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EF82D8981E8B8E9600DD4776 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7J57ACJ383;
+				INFOPLIST_FILE = LXDAppMonitor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jolimark.com.LXDAppMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EF82D89A1E8B8E9600DD4776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7J57ACJ383;
+				INFOPLIST_FILE = LXDAppMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jolimark.com.LXDAppMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LXDAppMonitor.app/LXDAppMonitor";
+			};
+			name = Debug;
+		};
+		EF82D89B1E8B8E9600DD4776 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7J57ACJ383;
+				INFOPLIST_FILE = LXDAppMonitorTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jolimark.com.LXDAppMonitorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LXDAppMonitor.app/LXDAppMonitor";
+			};
+			name = Release;
+		};
+		EF82D89D1E8B8E9600DD4776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 7J57ACJ383;
+				INFOPLIST_FILE = LXDAppMonitorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jolimark.com.LXDAppMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LXDAppMonitor;
+			};
+			name = Debug;
+		};
+		EF82D89E1E8B8E9600DD4776 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 7J57ACJ383;
+				INFOPLIST_FILE = LXDAppMonitorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jolimark.com.LXDAppMonitorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LXDAppMonitor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF82D8641E8B8E9600DD4776 /* Build configuration list for PBXProject "LXDAppMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF82D8941E8B8E9600DD4776 /* Debug */,
+				EF82D8951E8B8E9600DD4776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF82D8961E8B8E9600DD4776 /* Build configuration list for PBXNativeTarget "LXDAppMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF82D8971E8B8E9600DD4776 /* Debug */,
+				EF82D8981E8B8E9600DD4776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EF82D8991E8B8E9600DD4776 /* Build configuration list for PBXNativeTarget "LXDAppMonitorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF82D89A1E8B8E9600DD4776 /* Debug */,
+				EF82D89B1E8B8E9600DD4776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EF82D89C1E8B8E9600DD4776 /* Build configuration list for PBXNativeTarget "LXDAppMonitorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF82D89D1E8B8E9600DD4776 /* Debug */,
+				EF82D89E1E8B8E9600DD4776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF82D8611E8B8E9600DD4776 /* Project object */;
+}
