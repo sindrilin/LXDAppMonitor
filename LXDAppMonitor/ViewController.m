@@ -10,7 +10,10 @@
 #import "LXDFPSMonitor.h"
 #import "LXDHostMapper.h"
 #import "LXDFPSDisplayer.h"
+#import "LXDDNSInterceptor.h"
 #import "LXDAppFluencyMonitor.h"
+
+#import "WebViewController.h"
 
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -24,6 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    REGISTER_INTERCEPTOR
     [FLUENCYMONITOR startMonitoring];
     [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cell"];
 }
@@ -52,8 +56,9 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     for (int idx = 0; idx < 100; idx++) {
-        usleep(10000);
+//        usleep(10000);
     }
+    [self.navigationController pushViewController: [[WebViewController alloc] initWithUrl: @"http://www.sindrilin.com"] animated: YES];
 }
 
 

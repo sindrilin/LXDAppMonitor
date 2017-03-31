@@ -17,10 +17,11 @@ typedef NSString *(^LXDHostMap)(NSString * host);
  */
 @interface LXDHostMapper : NSObject
 
-
 + (BOOL)validIp: (NSString *)ip;
 + (void)setHostMap: (LXDHostMap)hostMap;
 + (void)parseHost: (NSString *)host complete: (void(^)(NSString * ip))complete;
+
++ (NSString *)parseHost: (NSString *)host;
 + (NSString *)getIpv4AddressFromHost: (NSString *)host;
 + (NSString *)getIpv6AddressFromHost: (NSString *)host;
 

@@ -23,6 +23,10 @@
 		EF82D8BA1E8B8EA800DD4776 /* LXDWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8AF1E8B8EA800DD4776 /* LXDWeakProxy.m */; };
 		EF82D8BB1E8B8EA800DD4776 /* LXDDNSInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8B21E8B8EA800DD4776 /* LXDDNSInterceptor.m */; };
 		EF82D8BC1E8B8EA800DD4776 /* LXDHostMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8B41E8B8EA800DD4776 /* LXDHostMapper.m */; };
+		EF82D8C01E8B901000DD4776 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8BE1E8B901000DD4776 /* WebViewController.m */; };
+		EF82D8C11E8B901000DD4776 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF82D8BF1E8B901000DD4776 /* WebViewController.xib */; };
+		EF82D9001E8BA2F000DD4776 /* LXDHostFilterRule.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */; };
+		EF85F3981E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,13 @@
 		EF82D8B21E8B8EA800DD4776 /* LXDDNSInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDDNSInterceptor.m; sourceTree = "<group>"; };
 		EF82D8B31E8B8EA800DD4776 /* LXDHostMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDHostMapper.h; sourceTree = "<group>"; };
 		EF82D8B41E8B8EA800DD4776 /* LXDHostMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDHostMapper.m; sourceTree = "<group>"; };
+		EF82D8BD1E8B901000DD4776 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		EF82D8BE1E8B901000DD4776 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		EF82D8BF1E8B901000DD4776 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		EF82D8FE1E8BA2F000DD4776 /* LXDHostFilterRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDHostFilterRule.h; sourceTree = "<group>"; };
+		EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDHostFilterRule.m; sourceTree = "<group>"; };
+		EF85F3961E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+WebKitSupport.h"; sourceTree = "<group>"; };
+		EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WebKitSupport.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +146,9 @@
 				EF82D87A1E8B8E9600DD4776 /* LaunchScreen.storyboard */,
 				EF82D87D1E8B8E9600DD4776 /* Info.plist */,
 				EF82D86C1E8B8E9600DD4776 /* Supporting Files */,
+				EF82D8BD1E8B901000DD4776 /* WebViewController.h */,
+				EF82D8BE1E8B901000DD4776 /* WebViewController.m */,
+				EF82D8BF1E8B901000DD4776 /* WebViewController.xib */,
 			);
 			path = LXDAppMonitor;
 			sourceTree = "<group>";
@@ -222,8 +236,12 @@
 			children = (
 				EF82D8B11E8B8EA800DD4776 /* LXDDNSInterceptor.h */,
 				EF82D8B21E8B8EA800DD4776 /* LXDDNSInterceptor.m */,
+				EF82D8FE1E8BA2F000DD4776 /* LXDHostFilterRule.h */,
+				EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */,
 				EF82D8B31E8B8EA800DD4776 /* LXDHostMapper.h */,
 				EF82D8B41E8B8EA800DD4776 /* LXDHostMapper.m */,
+				EF85F3961E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.h */,
+				EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */,
 			);
 			path = Intercept;
 			sourceTree = "<group>";
@@ -340,6 +358,7 @@
 				EF82D87C1E8B8E9600DD4776 /* LaunchScreen.storyboard in Resources */,
 				EF82D8791E8B8E9600DD4776 /* Assets.xcassets in Resources */,
 				EF82D8771E8B8E9600DD4776 /* Main.storyboard in Resources */,
+				EF82D8C11E8B901000DD4776 /* WebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +390,10 @@
 				EF82D8B71E8B8EA800DD4776 /* LXDAppFluencyMonitor.m in Sources */,
 				EF82D8B91E8B8EA800DD4776 /* LXDFPSMonitor.m in Sources */,
 				EF82D8B61E8B8EA800DD4776 /* LXDCrashMonitor.m in Sources */,
+				EF82D8C01E8B901000DD4776 /* WebViewController.m in Sources */,
+				EF82D9001E8BA2F000DD4776 /* LXDHostFilterRule.m in Sources */,
 				EF82D8B81E8B8EA800DD4776 /* LXDFPSDisplayer.m in Sources */,
+				EF85F3981E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m in Sources */,
 				EF82D86E1E8B8E9600DD4776 /* main.m in Sources */,
 				EF82D8B51E8B8EA800DD4776 /* LXDBacktraceLogger.m in Sources */,
 				EF82D8BC1E8B8EA800DD4776 /* LXDHostMapper.m in Sources */,
@@ -525,6 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7J57ACJ383;
 				INFOPLIST_FILE = LXDAppMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jolimark.com.LXDAppMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -537,6 +560,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7J57ACJ383;
 				INFOPLIST_FILE = LXDAppMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jolimark.com.LXDAppMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -612,6 +636,7 @@
 				EF82D8981E8B8E9600DD4776 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF82D8991E8B8E9600DD4776 /* Build configuration list for PBXNativeTarget "LXDAppMonitorTests" */ = {
 			isa = XCConfigurationList;
@@ -620,6 +645,7 @@
 				EF82D89B1E8B8E9600DD4776 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF82D89C1E8B8E9600DD4776 /* Build configuration list for PBXNativeTarget "LXDAppMonitorUITests" */ = {
 			isa = XCConfigurationList;
@@ -628,6 +654,7 @@
 				EF82D89E1E8B8E9600DD4776 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

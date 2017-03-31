@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-#define DNSINTERCEPTOR [LXDDNSInterceptor dnsInterceptor]
+typedef void(^LXDInvalidIpHandle)(NSURL * originUrl);
+
+#define REGISTER_INTERCEPTOR [LXDDNSInterceptor registerInterceptor];
+#define UNREGISTER_INTERCEPTOR [LXDDNSInterceptor unregisterInterceptor];
 /*!
  *  @brief  DNS拦截器
  */
 @interface LXDDNSInterceptor : NSURLProtocol
 
-@property (nonatomic, readonly) NSURL * currentUrl;
-@property (nonatomic, readonly) NSArray * invaildIps;
-@property (nonatomic, copy) NSDictionary * hostMapper;
-
-+ (instancetype)dnsInterceptor;
++ (void)registerInterceptor;
++ (void)unregisterInterceptor;
++ (void)registerInvalidIpHandle: (LXDInvalidIpHandle)invalidIpHandle;
 
 @end

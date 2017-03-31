@@ -7,6 +7,7 @@
 //
 
 #import "LXDHostMapper.h"
+#import "LXDHostFilterRule.h"
 #import <netdb.h>
 #import <arpa/inet.h>
 #import <sys/types.h>
@@ -20,7 +21,7 @@ static LXDHostMap lxd_host_map;
 
 
 + (BOOL)validIp: (NSString *)ip {
-    return [self validIpv4: ip] || [self validIpv6: ip];
+    return [self validIpv4: ip];
 }
 
 + (BOOL)validIpv4: (NSString *)ip {
@@ -47,20 +48,27 @@ static LXDHostMap lxd_host_map;
 
 + (void)parseHost: (NSString *)host complete: (void(^)(NSString * ip))complete {
     NSParameterAssert(complete);
-    if ([self validIp: host]) { complete(host); }
-    if (![self validHost: host]) { complete(nil); }
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        if (lxd_host_map != nil) {
-            NSString * ipAddress = lxd_host_map(host);
-            if (ipAddress == nil) {
-                ipAddress = [self getIpAddressFromHostName: host];
-            }
-            complete(ipAddress);
-        } else {
-            complete([self getIpAddressFromHostName: host]);
-        }
+        complete([self parseHost: host]);
     });
+}
+
++ (NSString *)parseHost: (NSString *)host {
+    if ([self validIp: host]) { return host; }
+    if (![self validHost: host]) { return nil; }
+    NSString * ipAddress = [LXDHostFilterRule getIpAddressFromHost: host];
+    if (ipAddress != nil) { return ipAddress; }
+    
+    if (lxd_host_map != nil) {
+        NSString * ipAddress = lxd_host_map(host);
+        if (ipAddress == nil) {
+            ipAddress = [self getIpAddressFromHostName: host];
+        }
+    } else {
+        ipAddress = [self getIpAddressFromHostName: host];
+    }
+    [LXDHostFilterRule mapHost: host toIp: ipAddress];
+    return ipAddress;
 }
 
 + (NSString *)getIpAddressFromHostName: (NSString *)host {
@@ -73,10 +81,9 @@ static LXDHostMap lxd_host_map;
 
 + (NSString *)getIpv4AddressFromHost: (NSString *)host {
     const char * hostName = host.UTF8String;
-    struct hostent * phost;
-    if ( (phost = gethostbyname(hostName)) == NULL ) {
-        return nil;
-    }
+    struct hostent * phost = [self getHostByName: hostName];
+    if ( phost == NULL ) { return nil; }
+    
     struct in_addr ip_addr;
     memcpy(&ip_addr, phost->h_addr_list[0], 4);
     
@@ -87,18 +94,38 @@ static LXDHostMap lxd_host_map;
 
 + (NSString *)getIpv6AddressFromHost: (NSString *)host {
     const char * hostName = host.UTF8String;
-    struct hostent * phost;
-    if ( (phost = gethostbyname(hostName)) == NULL ) {
-        return nil;
-    }
+    struct hostent * phost = [self getHostByName: hostName];
+    if ( phost == NULL ) { return nil; }
     
     char ip[32] = { 0 };
     char ** aliases;
-    for (aliases = phost->h_addr_list; *aliases != NULL; aliases++) {
-        NSString * ipAddress = [NSString stringWithUTF8String: inet_ntop(phost->h_addrtype, *aliases, ip, sizeof(ip))];
-        if (ipAddress) { break; }
+    switch (phost->h_addrtype) {
+        case AF_INET:
+        case AF_INET6: {
+            for (aliases = phost->h_addr_list; *aliases != NULL; aliases++) {
+                NSString * ipAddress = [NSString stringWithUTF8String: inet_ntop(phost->h_addrtype, *aliases, ip, sizeof(ip))];
+                    if (ipAddress) { return ipAddress; }
+            }
+        } break;
+            
+        default:
+            break;
     }
     return nil;
+}
+
+
++ (struct hostent *)getHostByName: (const char *)hostName {
+    __block struct hostent * phost = NULL;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    NSOperationQueue * queue = [NSOperationQueue new];
+    [queue addOperationWithBlock: ^{
+        phost = gethostbyname(hostName);
+        dispatch_semaphore_signal(semaphore);
+    }];
+    dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC));
+    [queue cancelAllOperations];
+    return phost;
 }
 
 
