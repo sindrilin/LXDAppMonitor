@@ -27,6 +27,7 @@
 		EF82D8C11E8B901000DD4776 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF82D8BF1E8B901000DD4776 /* WebViewController.xib */; };
 		EF82D9001E8BA2F000DD4776 /* LXDHostFilterRule.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */; };
 		EF85F3981E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */; };
+		EF85F3A11E8E6A16007F1FF5 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDHostFilterRule.m; sourceTree = "<group>"; };
 		EF85F3961E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+WebKitSupport.h"; sourceTree = "<group>"; };
 		EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WebKitSupport.m"; sourceTree = "<group>"; };
+		EF85F39F1E8E6A16007F1FF5 /* URLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };
+		EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +245,8 @@
 				EF82D8B41E8B8EA800DD4776 /* LXDHostMapper.m */,
 				EF85F3961E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.h */,
 				EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */,
+				EF85F39F1E8E6A16007F1FF5 /* URLProtocol.h */,
+				EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */,
 			);
 			path = Intercept;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF82D8741E8B8E9600DD4776 /* ViewController.m in Sources */,
+				EF85F3A11E8E6A16007F1FF5 /* URLProtocol.m in Sources */,
 				EF82D8711E8B8E9600DD4776 /* AppDelegate.m in Sources */,
 				EF82D8BB1E8B8EA800DD4776 /* LXDDNSInterceptor.m in Sources */,
 				EF82D8BA1E8B8EA800DD4776 /* LXDWeakProxy.m in Sources */,
