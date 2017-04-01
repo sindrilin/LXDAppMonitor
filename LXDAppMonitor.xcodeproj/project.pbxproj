@@ -28,6 +28,7 @@
 		EF82D9001E8BA2F000DD4776 /* LXDHostFilterRule.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */; };
 		EF85F3981E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */; };
 		EF85F3A11E8E6A16007F1FF5 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */; };
+		EF85F3A51E8F8F7B007F1FF5 /* LXDSystemCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3A41E8F8F7B007F1FF5 /* LXDSystemCPU.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WebKitSupport.m"; sourceTree = "<group>"; };
 		EF85F39F1E8E6A16007F1FF5 /* URLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };
 		EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
+		EF85F3A31E8F8F7B007F1FF5 /* LXDSystemCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDSystemCPU.h; sourceTree = "<group>"; };
+		EF85F3A41E8F8F7B007F1FF5 /* LXDSystemCPU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDSystemCPU.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +258,8 @@
 		EF85F3A21E8F7511007F1FF5 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				EF85F3A31E8F8F7B007F1FF5 /* LXDSystemCPU.h */,
+				EF85F3A41E8F8F7B007F1FF5 /* LXDSystemCPU.m */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				EF85F3981E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m in Sources */,
 				EF82D86E1E8B8E9600DD4776 /* main.m in Sources */,
 				EF82D8B51E8B8EA800DD4776 /* LXDBacktraceLogger.m in Sources */,
+				EF85F3A51E8F8F7B007F1FF5 /* LXDSystemCPU.m in Sources */,
 				EF82D8BC1E8B8EA800DD4776 /* LXDHostMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

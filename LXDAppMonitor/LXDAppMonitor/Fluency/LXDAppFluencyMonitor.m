@@ -8,17 +8,23 @@
 
 #import "LXDAppFluencyMonitor.h"
 #import "LXDBacktraceLogger.h"
+#import <UIKit/UIKit.h>
 
 
-#define LXD_SEMPHORE_SUCCESS 0
-#define LXD_MONITOR_NEED_OBSERVER 0
+#define LXD_SEMAPHORE_SUCCESS 0
+#define LXD_RESPONSE_THRESHOLD 30
 static NSTimeInterval lxd_time_out_interval = 0.5;
+
+
+#define LXD_MONITOR_NEED_OBSERVER 0
+#define LXD_MONITOR_ASYNC_OBSERVER 0
 
 
 @interface LXDAppFluencyMonitor ()
 
 @property (nonatomic, assign) int timeOut;
 @property (nonatomic, assign) BOOL isMonitoring;
+@property (nonatomic, weak) CADisplayLink * displayLink;
 @property (nonatomic, strong) dispatch_semaphore_t semphore;
 
 #if LXD_MONITOR_NEED_OBSERVER
@@ -113,6 +119,15 @@ static void lxdRunLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopA
     if (_isMonitoring) { return; }
     
     _isMonitoring = YES;
+    dispatch_async(lxd_fluecy_monitor_queue(), ^{
+        CADisplayLink * displayLink = [CADisplayLink displayLinkWithTarget: self selector: @selector(screenRenderCall)];
+        [self.displayLink invalidate];
+        self.displayLink = displayLink;
+        
+        [self.displayLink addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+        CFRunLoopRunInMode(kCFRunLoopDefaultMode, CGFLOAT_MAX, NO);
+    });
+    
 #if LXD_MONITOR_NEED_OBSERVER
     CFRunLoopObserverContext context = {
         0,
@@ -124,6 +139,8 @@ static void lxdRunLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopA
     CFRunLoopAddObserver(CFRunLoopGetMain(), _observer, kCFRunLoopCommonModes);
 #endif
     
+    
+#if LXD_MONITOR_ASYNC_OBSERVER
     dispatch_async(lxd_fluecy_monitor_queue(), ^{
         while (FLUENCYMONITOR.isMonitoring) {
 #if LXD_MONITOR_NEED_OBSERVER
@@ -160,11 +177,33 @@ static void lxdRunLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopA
 #endif
         }
     });
+#endif
+}
+
+- (void)screenRenderCall {
+    __block BOOL flag = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        flag = NO;
+        dispatch_semaphore_signal(self.semphore);
+    });
+    dispatch_wait(self.semphore, 16.7 * NSEC_PER_MSEC);
+    if (flag) {
+        if (++self.timeOut < LXD_RESPONSE_THRESHOLD) { return; }
+        [LXDBacktraceLogger lxd_logMain];
+        dispatch_wait(self.semphore, DISPATCH_TIME_FOREVER);
+    }
+    self.timeOut = 0;
 }
 
 - (void)stopMonitoring {
     if (!_isMonitoring) { return; }
     _isMonitoring = NO;
+    
+    [self.displayLink invalidate];
+    dispatch_async(lxd_fluecy_monitor_queue(), ^{
+        [self.displayLink removeFromRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+        CFRunLoopStop([NSRunLoop currentRunLoop].getCFRunLoop);
+    });
     
 #if LXD_MONITOR_NEED_OBSERVER
     CFRunLoopRemoveObserver(CFRunLoopGetMain(), _observer, kCFRunLoopCommonModes);
