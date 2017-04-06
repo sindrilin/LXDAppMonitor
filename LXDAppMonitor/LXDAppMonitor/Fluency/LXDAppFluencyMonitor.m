@@ -12,7 +12,7 @@
 
 
 #define LXD_SEMAPHORE_SUCCESS 0
-#define LXD_RESPONSE_THRESHOLD 30
+#define LXD_RESPONSE_THRESHOLD 40
 static NSTimeInterval lxd_time_out_interval = 0.5;
 
 
