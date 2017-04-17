@@ -72,16 +72,18 @@ static LXDHostMap lxd_host_map;
 }
 
 + (NSString *)getIpAddressFromHostName: (NSString *)host {
-    NSString * ipAddress = [self getIpv4AddressFromHost: host];
+    NSString * ipAddress = [self getIpv6AddressFromHost: host];
     if (ipAddress == nil) {
-        ipAddress = [self getIpv6AddressFromHost: host];
+        ipAddress = [self getIpv4AddressFromHost: host];
     }
     return ipAddress;
 }
 
 + (NSString *)getIpv4AddressFromHost: (NSString *)host {
     const char * hostName = host.UTF8String;
-    struct hostent * phost = [self getHostByName: hostName];
+    __block struct hostent * phost = [self getHostByName: hostName execute: ^{
+        phost = gethostbyname(hostName);
+    }];
     if ( phost == NULL ) { return nil; }
     
     struct in_addr ip_addr;
@@ -94,7 +96,9 @@ static LXDHostMap lxd_host_map;
 
 + (NSString *)getIpv6AddressFromHost: (NSString *)host {
     const char * hostName = host.UTF8String;
-    struct hostent * phost = [self getHostByName: hostName];
+    __block struct hostent * phost = [self getHostByName: hostName execute: ^{
+        phost = gethostbyname2(hostName, AF_INET6);
+    }];
     if ( phost == NULL ) { return nil; }
     
     char ip[32] = { 0 };
@@ -115,12 +119,14 @@ static LXDHostMap lxd_host_map;
 }
 
 
-+ (struct hostent *)getHostByName: (const char *)hostName {
++ (struct hostent *)getHostByName: (const char *)hostName execute: (dispatch_block_t)execute {
+    if (execute == nil) { return NULL; }
     __block struct hostent * phost = NULL;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     NSOperationQueue * queue = [NSOperationQueue new];
+    queue.maxConcurrentOperationCount = 1;
     [queue addOperationWithBlock: ^{
-        phost = gethostbyname(hostName);
+        execute();
         dispatch_semaphore_signal(semaphore);
     }];
     dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 1.5 * NSEC_PER_SEC));

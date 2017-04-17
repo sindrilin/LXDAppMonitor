@@ -13,6 +13,11 @@
  */
 @interface LXDSystemCPU : NSObject
 
+@property (nonatomic, readonly) double systemRatio;
+@property (nonatomic, readonly) double userRatio;
+@property (nonatomic, readonly) double niceRatio;
+@property (nonatomic, readonly) double idleRatio;
+
 - (void)updateCPUInfo;
 
 @end

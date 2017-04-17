@@ -48,7 +48,7 @@ typedef struct LXDSystemCPUInfo {
 } LXDSystemCPUInfo;
 
 /// 结构体构造转换
-static inline LXDSystemCPUInfo LXDSystemCPUInfoMake(NSUInteger system, NSUInteger user, NSUInteger nice, NSUInteger idle) {
+static inline LXDSystemCPUInfo __LXDSystemCPUInfoMake(NSUInteger system, NSUInteger user, NSUInteger nice, NSUInteger idle) {
     return (LXDSystemCPUInfo){ system, user, nice, idle };
 }
 
@@ -59,7 +59,7 @@ static inline NSString * LXDStringFromSystemCPUInfo(LXDSystemCPUInfo systemCPUIn
 static inline LXDSystemCPUInfo LXDSystemCPUInfoFromString(NSString * string) {
     NSArray * infos = [string componentsSeparatedByString: @"-"];
     if (infos.count == LXDSystemCPUInfoCount) {
-        return LXDSystemCPUInfoMake(
+        return __LXDSystemCPUInfoMake(
                                     [infos[LXDCPUInfoOffsetStateSystem] unsignedIntegerValue],
                                     [infos[LXDCPUInfoOffsetStateUser] unsignedIntegerValue],
                                     [infos[LXDCPUInfoOffsetStateNice] unsignedIntegerValue],
@@ -67,6 +67,18 @@ static inline LXDSystemCPUInfo LXDSystemCPUInfoFromString(NSString * string) {
     }
     return (LXDSystemCPUInfo){ 0 };
 }
+
+
+@interface LXDSystemCPU ()
+
+@property (nonatomic, assign) double systemRatio;
+@property (nonatomic, assign) double userRatio;
+@property (nonatomic, assign) double niceRatio;
+@property (nonatomic, assign) double idleRatio;
+
+@property (nonatomic, copy) NSArray<NSString *> * cpuInfos;
+
+@end
 
 
 @implementation LXDSystemCPU
@@ -80,8 +92,53 @@ static inline LXDSystemCPUInfo LXDSystemCPUInfoFromString(NSString * string) {
     kern_return_t result = host_processor_info(mach_host_self(), PROCESSOR_CPU_LOAD_INFO, &cpu_processor_count, &cpu_processor_infos, &cpu_processor_info_count);
     if ( result == KERN_SUCCESS && cpu_processor_infos != NULL ) {
         NSMutableArray * infos = [NSMutableArray arrayWithCapacity: cpu_processor_count];
+        for (int idx = 0; idx < cpu_processor_count; idx++) {
+            NSInteger offset = LXDCPUInfoOffsetStateMask * idx;
+            
+            double system, user, nice, idle;
+            if (previousCPUInfo.count > idx) {
+                LXDSystemCPUInfo previousInfo = LXDSystemCPUInfoFromString(previousCPUInfo[idx]);
+                system = cpu_processor_infos[offset + LXDCPUInfoOffsetStateSystem] - previousInfo.system;
+                user = cpu_processor_infos[offset + LXDCPUInfoOffsetStateUser] - previousInfo.user;
+                nice = cpu_processor_infos[offset + LXDCPUInfoOffsetStateNice] - previousInfo.nice;
+                idle = cpu_processor_infos[offset + LXDCPUInfoOffsetStateIdle] - previousInfo.idle;
+            } else {
+                system = cpu_processor_infos[offset + LXDCPUInfoOffsetStateSystem];
+                user = cpu_processor_infos[offset + LXDCPUInfoOffsetStateUser];
+                nice = cpu_processor_infos[offset + LXDCPUInfoOffsetStateNice];
+                idle = cpu_processor_infos[offset + LXDCPUInfoOffsetStateIdle];
+            }
+            LXDSystemCPUInfo info = __LXDSystemCPUInfoMake( system, user, nice, idle );
+            [infos addObject: LXDStringFromSystemCPUInfo(info)];
+        }
         
+        vm_size_t cpuInfoSize = sizeof(int32_t) * cpu_processor_count;
+        _kernelrpc_mach_vm_deallocate_trap(mach_task_self_, (vm_address_t)cpu_processor_infos, cpuInfoSize);
+        self.cpuInfos = infos;
+        [self updateCPUUsageInfo];
     }
+}
+
+- (void)updateCPUUsageInfo {
+    double system = 0, user = 0, nice = 0, idle = 0;
+    for (NSString * cpuInfoString in self.cpuInfos) {
+        LXDSystemCPUInfo cpuInfo = LXDSystemCPUInfoFromString(cpuInfoString);
+        system += cpuInfo.system;
+        user += cpuInfo.user;
+        nice += cpuInfo.nice;
+        idle += cpuInfo.idle;
+    }
+    system /= self.cpuInfos.count;
+    user /= self.cpuInfos.count;
+    nice /= self.cpuInfos.count;
+    idle /= self.cpuInfos.count;
+    
+    double total = system + user + nice + idle;
+    self.systemRatio = system / total;
+    self.userRatio = user / total;
+    self.niceRatio = nice / total;
+    self.idleRatio = idle / total;
+    previousCPUInfo = [self.cpuInfos copy];
 }
 
 
