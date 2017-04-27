@@ -15,7 +15,6 @@
 		EF82D87C1E8B8E9600DD4776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF82D87A1E8B8E9600DD4776 /* LaunchScreen.storyboard */; };
 		EF82D8871E8B8E9600DD4776 /* LXDAppMonitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8861E8B8E9600DD4776 /* LXDAppMonitorTests.m */; };
 		EF82D8921E8B8E9600DD4776 /* LXDAppMonitorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8911E8B8E9600DD4776 /* LXDAppMonitorUITests.m */; };
-		EF82D8B51E8B8EA800DD4776 /* LXDBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8A21E8B8EA800DD4776 /* LXDBacktraceLogger.m */; };
 		EF82D8B61E8B8EA800DD4776 /* LXDCrashMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8A51E8B8EA800DD4776 /* LXDCrashMonitor.m */; };
 		EF82D8B71E8B8EA800DD4776 /* LXDAppFluencyMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8A81E8B8EA800DD4776 /* LXDAppFluencyMonitor.m */; };
 		EF82D8B81E8B8EA800DD4776 /* LXDFPSDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8AB1E8B8EA800DD4776 /* LXDFPSDisplayer.m */; };
@@ -28,7 +27,19 @@
 		EF82D9001E8BA2F000DD4776 /* LXDHostFilterRule.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */; };
 		EF85F3981E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */; };
 		EF85F3A11E8E6A16007F1FF5 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */; };
-		EF85F3A51E8F8F7B007F1FF5 /* LXDSystemCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3A41E8F8F7B007F1FF5 /* LXDSystemCPU.m */; };
+		EFDD4B3A1EB02E9500CB5C69 /* LXDApplicationCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B371EB02E9500CB5C69 /* LXDApplicationCPU.m */; };
+		EFDD4B3B1EB02E9500CB5C69 /* LXDSystemCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B391EB02E9500CB5C69 /* LXDSystemCPU.m */; };
+		EFDD4B451EB03D1100CB5C69 /* LXDSystemMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B441EB03D1100CB5C69 /* LXDSystemMemory.m */; };
+		EFDD4B481EB06C7C00CB5C69 /* LXDApplicationMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B471EB06C7C00CB5C69 /* LXDApplicationMemory.m */; };
+		EFDD4B4B1EB17D9F00CB5C69 /* LXDResourceMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B4A1EB17D9F00CB5C69 /* LXDResourceMonitor.m */; };
+		EFDD4B671EB19B7200CB5C69 /* LXDDispatchAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B5B1EB19B7200CB5C69 /* LXDDispatchAsync.m */; };
+		EFDD4B681EB19B7200CB5C69 /* LXDDispatchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B5D1EB19B7200CB5C69 /* LXDDispatchOperation.m */; };
+		EFDD4B691EB19B7200CB5C69 /* LXDGlobalTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B601EB19B7200CB5C69 /* LXDGlobalTimer.m */; };
+		EFDD4B6A1EB19B7200CB5C69 /* LXDAsyncLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B631EB19B7200CB5C69 /* LXDAsyncLabel.m */; };
+		EFDD4B6B1EB19B7200CB5C69 /* LXDTopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B661EB19B7200CB5C69 /* LXDTopWindow.m */; };
+		EFDD4B6F1EB19B8200CB5C69 /* LXDBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B6E1EB19B8200CB5C69 /* LXDBacktraceLogger.m */; };
+		EFF925971EB1C9FA005D9BEB /* LXDCPUDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF925961EB1C9FA005D9BEB /* LXDCPUDisplayer.m */; };
+		EFF9259A1EB1CA1A005D9BEB /* LXDMemoryDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF925991EB1CA1A005D9BEB /* LXDMemoryDisplayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +76,6 @@
 		EF82D88D1E8B8E9600DD4776 /* LXDAppMonitorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LXDAppMonitorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF82D8911E8B8E9600DD4776 /* LXDAppMonitorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXDAppMonitorUITests.m; sourceTree = "<group>"; };
 		EF82D8931E8B8E9600DD4776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF82D8A11E8B8EA800DD4776 /* LXDBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDBacktraceLogger.h; sourceTree = "<group>"; };
-		EF82D8A21E8B8EA800DD4776 /* LXDBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDBacktraceLogger.m; sourceTree = "<group>"; };
 		EF82D8A41E8B8EA800DD4776 /* LXDCrashMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDCrashMonitor.h; sourceTree = "<group>"; };
 		EF82D8A51E8B8EA800DD4776 /* LXDCrashMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDCrashMonitor.m; sourceTree = "<group>"; };
 		EF82D8A71E8B8EA800DD4776 /* LXDAppFluencyMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDAppFluencyMonitor.h; sourceTree = "<group>"; };
@@ -90,8 +99,33 @@
 		EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WebKitSupport.m"; sourceTree = "<group>"; };
 		EF85F39F1E8E6A16007F1FF5 /* URLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };
 		EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
-		EF85F3A31E8F8F7B007F1FF5 /* LXDSystemCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDSystemCPU.h; sourceTree = "<group>"; };
-		EF85F3A41E8F8F7B007F1FF5 /* LXDSystemCPU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDSystemCPU.m; sourceTree = "<group>"; };
+		EFDD4B361EB02E9500CB5C69 /* LXDApplicationCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDApplicationCPU.h; sourceTree = "<group>"; };
+		EFDD4B371EB02E9500CB5C69 /* LXDApplicationCPU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDApplicationCPU.m; sourceTree = "<group>"; };
+		EFDD4B381EB02E9500CB5C69 /* LXDSystemCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDSystemCPU.h; sourceTree = "<group>"; };
+		EFDD4B391EB02E9500CB5C69 /* LXDSystemCPU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDSystemCPU.m; sourceTree = "<group>"; };
+		EFDD4B431EB03D1100CB5C69 /* LXDSystemMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDSystemMemory.h; sourceTree = "<group>"; };
+		EFDD4B441EB03D1100CB5C69 /* LXDSystemMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDSystemMemory.m; sourceTree = "<group>"; };
+		EFDD4B461EB06C7C00CB5C69 /* LXDApplicationMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDApplicationMemory.h; sourceTree = "<group>"; };
+		EFDD4B471EB06C7C00CB5C69 /* LXDApplicationMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDApplicationMemory.m; sourceTree = "<group>"; };
+		EFDD4B491EB17D9F00CB5C69 /* LXDResourceMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDResourceMonitor.h; sourceTree = "<group>"; };
+		EFDD4B4A1EB17D9F00CB5C69 /* LXDResourceMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDResourceMonitor.m; sourceTree = "<group>"; };
+		EFDD4B5A1EB19B7200CB5C69 /* LXDDispatchAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDDispatchAsync.h; sourceTree = "<group>"; };
+		EFDD4B5B1EB19B7200CB5C69 /* LXDDispatchAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDDispatchAsync.m; sourceTree = "<group>"; };
+		EFDD4B5C1EB19B7200CB5C69 /* LXDDispatchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDDispatchOperation.h; sourceTree = "<group>"; };
+		EFDD4B5D1EB19B7200CB5C69 /* LXDDispatchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDDispatchOperation.m; sourceTree = "<group>"; };
+		EFDD4B5F1EB19B7200CB5C69 /* LXDGlobalTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDGlobalTimer.h; sourceTree = "<group>"; };
+		EFDD4B601EB19B7200CB5C69 /* LXDGlobalTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDGlobalTimer.m; sourceTree = "<group>"; };
+		EFDD4B621EB19B7200CB5C69 /* LXDAsyncLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDAsyncLabel.h; sourceTree = "<group>"; };
+		EFDD4B631EB19B7200CB5C69 /* LXDAsyncLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDAsyncLabel.m; sourceTree = "<group>"; };
+		EFDD4B641EB19B7200CB5C69 /* LXDMonitorUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDMonitorUI.h; sourceTree = "<group>"; };
+		EFDD4B651EB19B7200CB5C69 /* LXDTopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDTopWindow.h; sourceTree = "<group>"; };
+		EFDD4B661EB19B7200CB5C69 /* LXDTopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDTopWindow.m; sourceTree = "<group>"; };
+		EFDD4B6D1EB19B8200CB5C69 /* LXDBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDBacktraceLogger.h; sourceTree = "<group>"; };
+		EFDD4B6E1EB19B8200CB5C69 /* LXDBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDBacktraceLogger.m; sourceTree = "<group>"; };
+		EFF925951EB1C9FA005D9BEB /* LXDCPUDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDCPUDisplayer.h; sourceTree = "<group>"; };
+		EFF925961EB1C9FA005D9BEB /* LXDCPUDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDCPUDisplayer.m; sourceTree = "<group>"; };
+		EFF925981EB1CA1A005D9BEB /* LXDMemoryDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDMemoryDisplayer.h; sourceTree = "<group>"; };
+		EFF925991EB1CA1A005D9BEB /* LXDMemoryDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDMemoryDisplayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,23 +222,14 @@
 		EF82D89F1E8B8EA800DD4776 /* LXDAppMonitor */ = {
 			isa = PBXGroup;
 			children = (
-				EF85F3A21E8F7511007F1FF5 /* System */,
-				EF82D8A01E8B8EA800DD4776 /* Backtrace */,
+				EFDD4B581EB19B7200CB5C69 /* Tool */,
+				EFDD4B351EB02E9500CB5C69 /* Resource */,
 				EF82D8A31E8B8EA800DD4776 /* Crash */,
 				EF82D8A61E8B8EA800DD4776 /* Fluency */,
 				EF82D8A91E8B8EA800DD4776 /* FPS */,
 				EF82D8B01E8B8EA800DD4776 /* Intercept */,
 			);
 			path = LXDAppMonitor;
-			sourceTree = "<group>";
-		};
-		EF82D8A01E8B8EA800DD4776 /* Backtrace */ = {
-			isa = PBXGroup;
-			children = (
-				EF82D8A11E8B8EA800DD4776 /* LXDBacktraceLogger.h */,
-				EF82D8A21E8B8EA800DD4776 /* LXDBacktraceLogger.m */,
-			);
-			path = Backtrace;
 			sourceTree = "<group>";
 		};
 		EF82D8A31E8B8EA800DD4776 /* Crash */ = {
@@ -255,13 +280,77 @@
 			path = Intercept;
 			sourceTree = "<group>";
 		};
-		EF85F3A21E8F7511007F1FF5 /* System */ = {
+		EFDD4B351EB02E9500CB5C69 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				EF85F3A31E8F8F7B007F1FF5 /* LXDSystemCPU.h */,
-				EF85F3A41E8F8F7B007F1FF5 /* LXDSystemCPU.m */,
+				EFF925951EB1C9FA005D9BEB /* LXDCPUDisplayer.h */,
+				EFF925961EB1C9FA005D9BEB /* LXDCPUDisplayer.m */,
+				EFF925981EB1CA1A005D9BEB /* LXDMemoryDisplayer.h */,
+				EFF925991EB1CA1A005D9BEB /* LXDMemoryDisplayer.m */,
+				EFDD4B361EB02E9500CB5C69 /* LXDApplicationCPU.h */,
+				EFDD4B371EB02E9500CB5C69 /* LXDApplicationCPU.m */,
+				EFDD4B381EB02E9500CB5C69 /* LXDSystemCPU.h */,
+				EFDD4B391EB02E9500CB5C69 /* LXDSystemCPU.m */,
+				EFDD4B431EB03D1100CB5C69 /* LXDSystemMemory.h */,
+				EFDD4B441EB03D1100CB5C69 /* LXDSystemMemory.m */,
+				EFDD4B461EB06C7C00CB5C69 /* LXDApplicationMemory.h */,
+				EFDD4B471EB06C7C00CB5C69 /* LXDApplicationMemory.m */,
+				EFDD4B491EB17D9F00CB5C69 /* LXDResourceMonitor.h */,
+				EFDD4B4A1EB17D9F00CB5C69 /* LXDResourceMonitor.m */,
 			);
-			path = System;
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		EFDD4B581EB19B7200CB5C69 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD4B6C1EB19B8200CB5C69 /* Backtrace */,
+				EFDD4B591EB19B7200CB5C69 /* Dispatch */,
+				EFDD4B5E1EB19B7200CB5C69 /* Timer */,
+				EFDD4B611EB19B7200CB5C69 /* UI */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		EFDD4B591EB19B7200CB5C69 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD4B5A1EB19B7200CB5C69 /* LXDDispatchAsync.h */,
+				EFDD4B5B1EB19B7200CB5C69 /* LXDDispatchAsync.m */,
+				EFDD4B5C1EB19B7200CB5C69 /* LXDDispatchOperation.h */,
+				EFDD4B5D1EB19B7200CB5C69 /* LXDDispatchOperation.m */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
+		EFDD4B5E1EB19B7200CB5C69 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD4B5F1EB19B7200CB5C69 /* LXDGlobalTimer.h */,
+				EFDD4B601EB19B7200CB5C69 /* LXDGlobalTimer.m */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		EFDD4B611EB19B7200CB5C69 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD4B621EB19B7200CB5C69 /* LXDAsyncLabel.h */,
+				EFDD4B631EB19B7200CB5C69 /* LXDAsyncLabel.m */,
+				EFDD4B641EB19B7200CB5C69 /* LXDMonitorUI.h */,
+				EFDD4B651EB19B7200CB5C69 /* LXDTopWindow.h */,
+				EFDD4B661EB19B7200CB5C69 /* LXDTopWindow.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EFDD4B6C1EB19B8200CB5C69 /* Backtrace */ = {
+			isa = PBXGroup;
+			children = (
+				EFDD4B6D1EB19B8200CB5C69 /* LXDBacktraceLogger.h */,
+				EFDD4B6E1EB19B8200CB5C69 /* LXDBacktraceLogger.m */,
+			);
+			path = Backtrace;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,21 +490,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFDD4B681EB19B7200CB5C69 /* LXDDispatchOperation.m in Sources */,
+				EFDD4B6B1EB19B7200CB5C69 /* LXDTopWindow.m in Sources */,
 				EF82D8741E8B8E9600DD4776 /* ViewController.m in Sources */,
+				EFDD4B481EB06C7C00CB5C69 /* LXDApplicationMemory.m in Sources */,
 				EF85F3A11E8E6A16007F1FF5 /* URLProtocol.m in Sources */,
+				EFDD4B6F1EB19B8200CB5C69 /* LXDBacktraceLogger.m in Sources */,
+				EFDD4B691EB19B7200CB5C69 /* LXDGlobalTimer.m in Sources */,
+				EFDD4B3A1EB02E9500CB5C69 /* LXDApplicationCPU.m in Sources */,
 				EF82D8711E8B8E9600DD4776 /* AppDelegate.m in Sources */,
 				EF82D8BB1E8B8EA800DD4776 /* LXDDNSInterceptor.m in Sources */,
 				EF82D8BA1E8B8EA800DD4776 /* LXDWeakProxy.m in Sources */,
 				EF82D8B71E8B8EA800DD4776 /* LXDAppFluencyMonitor.m in Sources */,
 				EF82D8B91E8B8EA800DD4776 /* LXDFPSMonitor.m in Sources */,
 				EF82D8B61E8B8EA800DD4776 /* LXDCrashMonitor.m in Sources */,
+				EFDD4B3B1EB02E9500CB5C69 /* LXDSystemCPU.m in Sources */,
+				EFF925971EB1C9FA005D9BEB /* LXDCPUDisplayer.m in Sources */,
+				EFDD4B671EB19B7200CB5C69 /* LXDDispatchAsync.m in Sources */,
 				EF82D8C01E8B901000DD4776 /* WebViewController.m in Sources */,
 				EF82D9001E8BA2F000DD4776 /* LXDHostFilterRule.m in Sources */,
+				EFDD4B6A1EB19B7200CB5C69 /* LXDAsyncLabel.m in Sources */,
+				EFDD4B451EB03D1100CB5C69 /* LXDSystemMemory.m in Sources */,
+				EFDD4B4B1EB17D9F00CB5C69 /* LXDResourceMonitor.m in Sources */,
 				EF82D8B81E8B8EA800DD4776 /* LXDFPSDisplayer.m in Sources */,
 				EF85F3981E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m in Sources */,
 				EF82D86E1E8B8E9600DD4776 /* main.m in Sources */,
-				EF82D8B51E8B8EA800DD4776 /* LXDBacktraceLogger.m in Sources */,
-				EF85F3A51E8F8F7B007F1FF5 /* LXDSystemCPU.m in Sources */,
+				EFF9259A1EB1CA1A005D9BEB /* LXDMemoryDisplayer.m in Sources */,
 				EF82D8BC1E8B8EA800DD4776 /* LXDHostMapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

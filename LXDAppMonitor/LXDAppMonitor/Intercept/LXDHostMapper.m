@@ -63,6 +63,8 @@ static LXDHostMap lxd_host_map;
         NSString * ipAddress = lxd_host_map(host);
         if (ipAddress == nil) {
             ipAddress = [self getIpAddressFromHostName: host];
+            [LXDHostFilterRule mapHost: host toIp: ipAddress];
+            return ipAddress;
         }
     } else {
         ipAddress = [self getIpAddressFromHostName: host];

@@ -7,22 +7,9 @@
 //
 
 #import "LXDSystemCPU.h"
+#import <mach/vm_map.h>
 #import <mach/mach_host.h>
 #import <mach/processor_info.h>
-
-//#import <CoreTelephony/CTTelephonyNetworkInfo.h>
-//#import <CoreTelephony/CTCarrier.h>
-//#import <mach/mach.h>
-//#import <sys/types.h>
-//#import <sys/param.h>
-//#import <sys/mount.h>
-//#include <sys/types.h>
-//#include <sys/sysctl.h>
-//#include <sys/socket.h>
-//#include <sys/sysctl.h>
-//#include <sys/stat.h>
-//#include <net/if.h>
-//#include <net/if_dl.h>
 
 
 static NSArray * previousCPUInfo;
@@ -41,10 +28,10 @@ typedef NS_ENUM(NSInteger, LXDCPUInfoOffsetState)
 /// cpu信息结构体
 static NSUInteger LXDSystemCPUInfoCount = 4;
 typedef struct LXDSystemCPUInfo {
-    NSUInteger system;
-    NSUInteger user;
-    NSUInteger nice;
-    NSUInteger idle;
+    NSUInteger system;  ///< 系统态占用。
+    NSUInteger user;    ///< 用户态占用。
+    NSUInteger nice;    ///< nice加权的用户态占用。
+    NSUInteger idle;    ///< 空闲占用
 } LXDSystemCPUInfo;
 
 /// 结构体构造转换
@@ -60,10 +47,10 @@ static inline LXDSystemCPUInfo LXDSystemCPUInfoFromString(NSString * string) {
     NSArray * infos = [string componentsSeparatedByString: @"-"];
     if (infos.count == LXDSystemCPUInfoCount) {
         return __LXDSystemCPUInfoMake(
-                                    [infos[LXDCPUInfoOffsetStateSystem] unsignedIntegerValue],
-                                    [infos[LXDCPUInfoOffsetStateUser] unsignedIntegerValue],
-                                    [infos[LXDCPUInfoOffsetStateNice] unsignedIntegerValue],
-                                    [infos[LXDCPUInfoOffsetStateIdle] unsignedIntegerValue]);
+                                    [infos[LXDCPUInfoOffsetStateSystem] integerValue],
+                                    [infos[LXDCPUInfoOffsetStateUser] integerValue],
+                                    [infos[LXDCPUInfoOffsetStateNice] integerValue],
+                                    [infos[LXDCPUInfoOffsetStateIdle] integerValue]);
     }
     return (LXDSystemCPUInfo){ 0 };
 }
@@ -84,7 +71,11 @@ static inline LXDSystemCPUInfo LXDSystemCPUInfoFromString(NSString * string) {
 @implementation LXDSystemCPU
 
 
-- (void)updateCPUInfo {
+- (LXDSystemCPUUsage)currentUsage {
+    return [self generateSystemCpuUsageWithCpuInfos: [self generateCpuInfos]];
+}
+
+- (NSArray<NSString *> *)generateCpuInfos {
     natural_t cpu_processor_count = 0;
     natural_t cpu_processor_info_count = 0;
     processor_info_array_t cpu_processor_infos = NULL;
@@ -113,32 +104,34 @@ static inline LXDSystemCPUInfo LXDSystemCPUInfoFromString(NSString * string) {
         }
         
         vm_size_t cpuInfoSize = sizeof(int32_t) * cpu_processor_count;
-        _kernelrpc_mach_vm_deallocate_trap(mach_task_self_, (vm_address_t)cpu_processor_infos, cpuInfoSize);
-        self.cpuInfos = infos;
-        [self updateCPUUsageInfo];
+        vm_deallocate(mach_task_self_, (vm_address_t)cpu_processor_infos, cpuInfoSize);
+        return infos;
     }
+    return nil;
 }
 
-- (void)updateCPUUsageInfo {
+- (LXDSystemCPUUsage)generateSystemCpuUsageWithCpuInfos: (NSArray<NSString *> *)cpuInfos {
+    if (cpuInfos.count == 0) { return (LXDSystemCPUUsage){ 0 }; }
     double system = 0, user = 0, nice = 0, idle = 0;
-    for (NSString * cpuInfoString in self.cpuInfos) {
+    for (NSString * cpuInfoString in cpuInfos) {
         LXDSystemCPUInfo cpuInfo = LXDSystemCPUInfoFromString(cpuInfoString);
         system += cpuInfo.system;
         user += cpuInfo.user;
         nice += cpuInfo.nice;
         idle += cpuInfo.idle;
     }
-    system /= self.cpuInfos.count;
-    user /= self.cpuInfos.count;
-    nice /= self.cpuInfos.count;
-    idle /= self.cpuInfos.count;
+    system /= cpuInfos.count;
+    user /= cpuInfos.count;
+    nice /= cpuInfos.count;
+    idle /= cpuInfos.count;
     
     double total = system + user + nice + idle;
-    self.systemRatio = system / total;
-    self.userRatio = user / total;
-    self.niceRatio = nice / total;
-    self.idleRatio = idle / total;
-    previousCPUInfo = [self.cpuInfos copy];
+    return (LXDSystemCPUUsage){
+        .system = system / total,
+        .user = user / total,
+        .nice = nice / total,
+        .idle = idle / total,
+    };
 }
 
 

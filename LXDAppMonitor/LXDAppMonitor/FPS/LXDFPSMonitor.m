@@ -7,6 +7,7 @@
 //
 
 #import "LXDFPSMonitor.h"
+#import "LXDMonitorUI.h"
 #import "LXDWeakProxy.h"
 #import "LXDFPSDisplayer.h"
 #import "LXDBacktraceLogger.h"
@@ -53,7 +54,7 @@
     [self.displayer removeFromSuperview];
     LXDFPSDisplayer * displayer = [[LXDFPSDisplayer alloc] init];
     self.displayer = displayer;
-    [[UIApplication sharedApplication].keyWindow addSubview: displayer];
+    [[LXDTopWindow topWindow] addSubview: self.displayer];
     
     self.displayLink = [CADisplayLink displayLinkWithTarget: [LXDWeakProxy proxyWithConsignor: self] selector: @selector(monitor:)];
     [self.displayLink addToRunLoop: [NSRunLoop mainRunLoop] forMode: NSRunLoopCommonModes];

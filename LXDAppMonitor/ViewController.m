@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "LXDSystemCPU.h"
 #import "LXDFPSMonitor.h"
 #import "LXDHostMapper.h"
-#import "LXDFPSDisplayer.h"
+#import "LXDApplicationCPU.h"
+#import "LXDResourceMonitor.h"
 #import "LXDDNSInterceptor.h"
 #import "LXDAppFluencyMonitor.h"
 
@@ -28,9 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    REGISTER_INTERCEPTOR
-    [FLUENCYMONITOR startMonitoring];
     [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cell"];
+    [FPS_MONITOR startMonitoring];
+    [[LXDResourceMonitor monitorWithMonitorType: LXDResourceMonitorTypeSystemCpu | LXDResourceMonitorTypeApplicationMemoty] startMonitoring];
 }
 
 - (void)viewDidAppear: (BOOL)animated {

@@ -17,7 +17,7 @@ static NSTimeInterval lxd_time_out_interval = 0.5;
 
 
 #define LXD_MONITOR_NEED_OBSERVER 0
-#define LXD_MONITOR_ASYNC_OBSERVER 0
+#define LXD_MONITOR_ASYNC_OBSERVER 1
 
 
 @interface LXDAppFluencyMonitor ()
@@ -119,14 +119,14 @@ static void lxdRunLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopA
     if (_isMonitoring) { return; }
     
     _isMonitoring = YES;
-    dispatch_async(lxd_fluecy_monitor_queue(), ^{
-        CADisplayLink * displayLink = [CADisplayLink displayLinkWithTarget: self selector: @selector(screenRenderCall)];
-        [self.displayLink invalidate];
-        self.displayLink = displayLink;
-        
-        [self.displayLink addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
-        CFRunLoopRunInMode(kCFRunLoopDefaultMode, CGFLOAT_MAX, NO);
-    });
+//    dispatch_async(lxd_fluecy_monitor_queue(), ^{
+//        CADisplayLink * displayLink = [CADisplayLink displayLinkWithTarget: self selector: @selector(screenRenderCall)];
+//        [self.displayLink invalidate];
+//        self.displayLink = displayLink;
+//        
+//        [self.displayLink addToRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+//        CFRunLoopRunInMode(kCFRunLoopDefaultMode, CGFLOAT_MAX, NO);
+//    });
     
 #if LXD_MONITOR_NEED_OBSERVER
     CFRunLoopObserverContext context = {
@@ -199,11 +199,11 @@ static void lxdRunLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopA
     if (!_isMonitoring) { return; }
     _isMonitoring = NO;
     
-    [self.displayLink invalidate];
-    dispatch_async(lxd_fluecy_monitor_queue(), ^{
-        [self.displayLink removeFromRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
-        CFRunLoopStop([NSRunLoop currentRunLoop].getCFRunLoop);
-    });
+//    [self.displayLink invalidate];
+//    dispatch_async(lxd_fluecy_monitor_queue(), ^{
+//        [self.displayLink removeFromRunLoop: [NSRunLoop currentRunLoop] forMode: NSDefaultRunLoopMode];
+//        CFRunLoopStop([NSRunLoop currentRunLoop].getCFRunLoop);
+//    });
     
 #if LXD_MONITOR_NEED_OBSERVER
     CFRunLoopRemoveObserver(CFRunLoopGetMain(), _observer, kCFRunLoopCommonModes);

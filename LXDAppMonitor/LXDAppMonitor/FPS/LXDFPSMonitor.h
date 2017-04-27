@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-#define FPSMONITOR [LXDFPSMonitor sharedMonitor]
+#define FPS_MONITOR [LXDFPSMonitor sharedMonitor]
 /*!
  *  @brief  监听FPS
  */
