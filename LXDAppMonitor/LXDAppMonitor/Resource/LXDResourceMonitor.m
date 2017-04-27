@@ -79,7 +79,7 @@ static NSString * lxd_resource_monitor_callback_key;
 - (void)startMonitoring {
     if (lxd_resource_monitor_callback_key != nil) { return; }
     lxd_resource_monitor_callback_key = [[LXDGlobalTimer registerTimerCallback: ^{
-        double cpuUsage, memoryUsage, totalMemory;
+        double cpuUsage, memoryUsage;
         if (_appCpu) {
             cpuUsage = [_appCpu currentUsage];
         } else {
@@ -89,11 +89,9 @@ static NSString * lxd_resource_monitor_callback_key;
         if (_appMemory) {
             LXDApplicationMemoryUsage usage = [_appMemory currentUsage];
             memoryUsage = usage.usage;
-            totalMemory = usage.total;
         } else {
             LXDSystemMemoryUsage usage = [_sysMemory currentUsage];
             memoryUsage = (usage.wired + usage.active);
-            totalMemory = usage.total;
         }
         [self.cpuDisplayer displayCPUUsage: cpuUsage];
         [self.memoryDisplayer displayUsage: memoryUsage];

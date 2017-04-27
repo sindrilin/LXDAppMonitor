@@ -32,7 +32,7 @@
     [super viewDidLoad];
     [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cell"];
     [FPS_MONITOR startMonitoring];
-    [[LXDResourceMonitor monitorWithMonitorType: LXDResourceMonitorTypeSystemCpu | LXDResourceMonitorTypeApplicationMemoty] startMonitoring];
+    [RESOURCE_MONITOR startMonitoring];
 }
 
 - (void)viewDidAppear: (BOOL)animated {

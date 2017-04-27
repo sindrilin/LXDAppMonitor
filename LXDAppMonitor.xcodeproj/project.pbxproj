@@ -26,7 +26,6 @@
 		EF82D8C11E8B901000DD4776 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF82D8BF1E8B901000DD4776 /* WebViewController.xib */; };
 		EF82D9001E8BA2F000DD4776 /* LXDHostFilterRule.m in Sources */ = {isa = PBXBuildFile; fileRef = EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */; };
 		EF85F3981E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */; };
-		EF85F3A11E8E6A16007F1FF5 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */; };
 		EFDD4B3A1EB02E9500CB5C69 /* LXDApplicationCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B371EB02E9500CB5C69 /* LXDApplicationCPU.m */; };
 		EFDD4B3B1EB02E9500CB5C69 /* LXDSystemCPU.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B391EB02E9500CB5C69 /* LXDSystemCPU.m */; };
 		EFDD4B451EB03D1100CB5C69 /* LXDSystemMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B441EB03D1100CB5C69 /* LXDSystemMemory.m */; };
@@ -97,8 +96,6 @@
 		EF82D8FF1E8BA2F000DD4776 /* LXDHostFilterRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDHostFilterRule.m; sourceTree = "<group>"; };
 		EF85F3961E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+WebKitSupport.h"; sourceTree = "<group>"; };
 		EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WebKitSupport.m"; sourceTree = "<group>"; };
-		EF85F39F1E8E6A16007F1FF5 /* URLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };
-		EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
 		EFDD4B361EB02E9500CB5C69 /* LXDApplicationCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDApplicationCPU.h; sourceTree = "<group>"; };
 		EFDD4B371EB02E9500CB5C69 /* LXDApplicationCPU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDApplicationCPU.m; sourceTree = "<group>"; };
 		EFDD4B381EB02E9500CB5C69 /* LXDSystemCPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDSystemCPU.h; sourceTree = "<group>"; };
@@ -274,8 +271,6 @@
 				EF82D8B41E8B8EA800DD4776 /* LXDHostMapper.m */,
 				EF85F3961E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.h */,
 				EF85F3971E8CDA96007F1FF5 /* NSURLProtocol+WebKitSupport.m */,
-				EF85F39F1E8E6A16007F1FF5 /* URLProtocol.h */,
-				EF85F3A01E8E6A16007F1FF5 /* URLProtocol.m */,
 			);
 			path = Intercept;
 			sourceTree = "<group>";
@@ -494,7 +489,6 @@
 				EFDD4B6B1EB19B7200CB5C69 /* LXDTopWindow.m in Sources */,
 				EF82D8741E8B8E9600DD4776 /* ViewController.m in Sources */,
 				EFDD4B481EB06C7C00CB5C69 /* LXDApplicationMemory.m in Sources */,
-				EF85F3A11E8E6A16007F1FF5 /* URLProtocol.m in Sources */,
 				EFDD4B6F1EB19B8200CB5C69 /* LXDBacktraceLogger.m in Sources */,
 				EFDD4B691EB19B7200CB5C69 /* LXDGlobalTimer.m in Sources */,
 				EFDD4B3A1EB02E9500CB5C69 /* LXDApplicationCPU.m in Sources */,

@@ -10,13 +10,42 @@
 #import "LXDHostMapper.h"
 #import "LXDHostFilterRule.h"
 #import "NSURLProtocol+WebKitSupport.h"
+#import <objc/runtime.h>
 
 
 #define INVALID_STATUS_CODE 404
 
 
 static LXDInvalidIpHandle lxd_invalid_ip_handle;
+static void(^lxd_url_session_configure)(NSURLSessionConfiguration * configuration);
 static NSString * const LXDURLHasHandledKey = @"LXDURLHasHandledKey";
+
+
+
+@interface NSURLSession (LXDIntercept)
+
+- (instancetype)initWithConfiguration: (NSURLSessionConfiguration *)configuration delegate: (id<NSURLSessionDelegate>)delegate delegateQueue: (NSOperationQueue *)queue;
+
+@end
+
+
+
+@implementation NSURLSession (LXDIntercept)
+
++ (void)load {
+    Method origin = class_getClassMethod([NSURLSession class], @selector(initWithConfiguration:delegate:delegateQueue:));
+    Method custom = class_getClassMethod([NSURLSession class], @selector(lxd_initWithConfiguration:delegate:delegateQueue:));
+    method_exchangeImplementations(origin, custom);
+}
+
+- (NSURLSession *)lxd_initWithConfiguration: (NSURLSessionConfiguration *)configuration delegate: (id<NSURLSessionDelegate>)delegate delegateQueue: (NSOperationQueue *)queue {
+    if (lxd_url_session_configure) {
+        lxd_url_session_configure(configuration);
+    }
+    return [self lxd_initWithConfiguration: configuration delegate: delegate delegateQueue: queue];
+}
+
+@end
 
 
 
@@ -47,6 +76,13 @@ static NSString * const LXDURLHasHandledKey = @"LXDURLHasHandledKey";
     [self foreachURLSchemesWithHandle: ^(NSString *scheme) {
         [NSURLProtocol lxd_registerScheme: scheme];
     }];
+    lxd_url_session_configure = ^(NSURLSessionConfiguration * configuration){
+        if (![configuration.protocolClasses containsObject: [LXDDNSInterceptor class]]) {
+            NSMutableArray * protocolClasses = [NSMutableArray arrayWithArray: configuration.protocolClasses];
+            [protocolClasses addObject: [LXDDNSInterceptor class]];
+            configuration.protocolClasses = protocolClasses;
+        }
+    };
 }
 
 + (void)unregisterInterceptor {
@@ -55,6 +91,7 @@ static NSString * const LXDURLHasHandledKey = @"LXDURLHasHandledKey";
     [self foreachURLSchemesWithHandle: ^(NSString *scheme) {
         [NSURLProtocol lxd_unregisterScheme: scheme];
     }];
+    lxd_url_session_configure = nil;
 }
 
 + (void)registerInvalidIpHandle: (LXDInvalidIpHandle)invalidIpHandle {
