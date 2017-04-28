@@ -62,9 +62,6 @@
     self.displayLink.preferredFramesPerSecond = 60;
 }
 
-- (void)startMonitoringWithFPSLabel: (BOOL)needFPSLabel {
-}
-
 - (void)stopMonitoring {
     if (!_isMonitoring) { return; }
     _isMonitoring = NO;

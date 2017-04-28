@@ -41,7 +41,7 @@
 }
 
 - (void)displayUsage: (double)usage {
-    LXDDispatchQueueAsyncBlockInDefault(^{
+    LXDDispatchQueueAsyncBlockInBackground(^{
         NSMutableAttributedString * attributed = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat: @"%.1f", usage] attributes: @{ NSFontAttributeName: _displayerLabel.font, NSForegroundColorAttributeName: [UIColor colorWithHue: 0.27 * (0.8 - usage / LXD_HIGH_MEMORY_USAGE) saturation: 1 brightness: 0.9 alpha: 1] }];
         [attributed appendAttributedString: [[NSAttributedString alloc] initWithString: @"MB" attributes: @{ NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: _displayerLabel.font }]];
         self.displayerLabel.attributedText = attributed;

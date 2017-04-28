@@ -39,6 +39,8 @@
 		EFDD4B6F1EB19B8200CB5C69 /* LXDBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDD4B6E1EB19B8200CB5C69 /* LXDBacktraceLogger.m */; };
 		EFF925971EB1C9FA005D9BEB /* LXDCPUDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF925961EB1C9FA005D9BEB /* LXDCPUDisplayer.m */; };
 		EFF9259A1EB1CA1A005D9BEB /* LXDMemoryDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF925991EB1CA1A005D9BEB /* LXDMemoryDisplayer.m */; };
+		EFF9259D1EB1FCDE005D9BEB /* LXDCrashLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9259C1EB1FCDE005D9BEB /* LXDCrashLogger.m */; };
+		EFF925A01EB2E5B1005D9BEB /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF9259F1EB2E5B1005D9BEB /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,9 @@
 		EFF925961EB1C9FA005D9BEB /* LXDCPUDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDCPUDisplayer.m; sourceTree = "<group>"; };
 		EFF925981EB1CA1A005D9BEB /* LXDMemoryDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDMemoryDisplayer.h; sourceTree = "<group>"; };
 		EFF925991EB1CA1A005D9BEB /* LXDMemoryDisplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDMemoryDisplayer.m; sourceTree = "<group>"; };
+		EFF9259B1EB1FCDE005D9BEB /* LXDCrashLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDCrashLogger.h; sourceTree = "<group>"; };
+		EFF9259C1EB1FCDE005D9BEB /* LXDCrashLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDCrashLogger.m; sourceTree = "<group>"; };
+		EFF9259F1EB2E5B1005D9BEB /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF925A01EB2E5B1005D9BEB /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +163,7 @@
 				EF82D8851E8B8E9600DD4776 /* LXDAppMonitorTests */,
 				EF82D8901E8B8E9600DD4776 /* LXDAppMonitorUITests */,
 				EF82D86A1E8B8E9600DD4776 /* Products */,
+				EFF9259E1EB2E5B1005D9BEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +241,8 @@
 			children = (
 				EF82D8A41E8B8EA800DD4776 /* LXDCrashMonitor.h */,
 				EF82D8A51E8B8EA800DD4776 /* LXDCrashMonitor.m */,
+				EFF9259B1EB1FCDE005D9BEB /* LXDCrashLogger.h */,
+				EFF9259C1EB1FCDE005D9BEB /* LXDCrashLogger.m */,
 			);
 			path = Crash;
 			sourceTree = "<group>";
@@ -346,6 +355,14 @@
 				EFDD4B6E1EB19B8200CB5C69 /* LXDBacktraceLogger.m */,
 			);
 			path = Backtrace;
+			sourceTree = "<group>";
+		};
+		EFF9259E1EB2E5B1005D9BEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFF9259F1EB2E5B1005D9BEB /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFDD4B681EB19B7200CB5C69 /* LXDDispatchOperation.m in Sources */,
+				EFF9259D1EB1FCDE005D9BEB /* LXDCrashLogger.m in Sources */,
 				EFDD4B6B1EB19B7200CB5C69 /* LXDTopWindow.m in Sources */,
 				EF82D8741E8B8E9600DD4776 /* ViewController.m in Sources */,
 				EFDD4B481EB06C7C00CB5C69 /* LXDApplicationMemory.m in Sources */,

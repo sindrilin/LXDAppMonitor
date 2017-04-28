@@ -13,6 +13,6 @@
  */
 @interface LXDCrashMonitor : UIView
 
-
++ (void)startMonitoring;
 
 @end

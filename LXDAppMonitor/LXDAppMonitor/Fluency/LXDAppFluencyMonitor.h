@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-#define FLUENCYMONITOR [LXDAppFluencyMonitor shareMonitor]
+#define FLUENCYMONITOR [LXDAppFluencyMonitor monitor]
 
 
 /*!
@@ -17,7 +17,7 @@
  */
 @interface LXDAppFluencyMonitor : NSObject
 
-+ (instancetype)shareMonitor;
++ (instancetype)monitor;
 
 - (void)startMonitoring;
 - (void)stopMonitoring;
