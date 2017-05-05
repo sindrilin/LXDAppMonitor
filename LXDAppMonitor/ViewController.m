@@ -7,16 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "LXDSystemCPU.h"
-#import "LXDFPSMonitor.h"
-#import "LXDHostMapper.h"
-#import "LXDApplicationCPU.h"
-#import "LXDResourceMonitor.h"
-#import "LXDDNSInterceptor.h"
-#import "LXDAppFluencyMonitor.h"
-
-#import "WebViewController.h"
-#import <objc/runtime.h>
 
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -30,14 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cell"];
-    [FPS_MONITOR startMonitoring];
-    [RESOURCE_MONITOR startMonitoring];
 }
 
 - (void)viewDidAppear: (BOOL)animated {
     [super viewDidAppear: animated];
-    [FLUENCYMONITOR startMonitoring];
 }
 
 
@@ -61,7 +47,6 @@
     for (int idx = 0; idx < 100; idx++) {
         usleep(10000);
     }
-//    [self.navigationController pushViewController: [[WebViewController alloc] initWithUrl: @"http://www.sindrilin.com"] animated: YES];
 }
 
 

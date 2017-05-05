@@ -27,6 +27,8 @@
                   topViewController: (NSString *)topViewController
                  applicationVersion: (NSString *)applicationVersion;
 
+- (NSString *)loggerDescription;
+
 @end
 
 
@@ -38,7 +40,7 @@
 + (instancetype)sharedServer;
 - (void)insertLogger: (LXDCrashLogger *)logger;
 - (void)fetchLastLogger: (void(^)(LXDCrashLogger * logger))fetchHandle;
-- (void)fetchLoggers: (void(^)(NSArray<LXDCrashLogger *> *))fetchHandle;
+- (void)fetchLoggers: (void(^)(NSArray<LXDCrashLogger *> * loggers))fetchHandle;
 
 @end
 

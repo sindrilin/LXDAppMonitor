@@ -62,6 +62,10 @@ NSString * __lxd_convert_time(NSDate * date) {
     return crashLogger;
 }
 
+- (NSString *)loggerDescription {
+    return [NSString stringWithFormat: @"Error: %@\nReson: %@\n%@\nTop viewcontroller: %@\nCrash time: %@\n\nCall Stack: \n%@", _name, _reason, _applicationVersion, _topViewController, _crashTime, _stackInfo];
+}
+
 
 @end
 
@@ -97,7 +101,9 @@ NSString * __lxd_convert_time(NSDate * date) {
     if (self = [super init]) {
         if ([self _dbOpen]) {
             [self _dbInitialize];
-            self.stmtCache = CFDictionaryCreateMutable(kCFAllocatorDefault, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks);
+            CFDictionaryKeyCallBacks keyCallbacks = kCFCopyStringDictionaryKeyCallBacks;
+            CFDictionaryValueCallBacks valueCallbacks = { 0 };
+            self.stmtCache = CFDictionaryCreateMutable(kCFAllocatorDefault, 0, &keyCallbacks, &valueCallbacks);
         }
     }
     return self;
@@ -119,9 +125,7 @@ NSString * __lxd_convert_time(NSDate * date) {
 
 #pragma mark - Public
 - (void)insertLogger: (LXDCrashLogger *)logger {
-    [self _syncExecute: ^{
-        [self _insertCrashLogger: logger];
-    }];
+    [self _insertCrashLogger: logger];
 }
 
 - (void)fetchLastLogger: (void(^)(LXDCrashLogger * logger))fetchHandle {

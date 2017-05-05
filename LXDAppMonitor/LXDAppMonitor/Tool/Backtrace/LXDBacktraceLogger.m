@@ -107,9 +107,8 @@ static inline dispatch_queue_t lxd_log_IO_queue() {
 + (NSString *)lxd_backtraceOfAllThread {
     thread_act_array_t threads;
     mach_msg_type_number_t thread_count = 0;
-    const task_t this_task = mach_task_self();
     
-    kern_return_t kr = task_threads(this_task, &threads, &thread_count);
+    kern_return_t kr = task_threads(mach_task_self(), &threads, &thread_count);
     if (kr != KERN_SUCCESS) {
         return @"Failed to get information of all threads";
     }

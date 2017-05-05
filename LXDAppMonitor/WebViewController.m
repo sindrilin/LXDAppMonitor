@@ -7,7 +7,6 @@
 //
 
 #import "WebViewController.h"
-#import "LXDDNSInterceptor.h"
 #import <WebKit/WebKit.h>
 
 
@@ -30,23 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-#ifdef WEBKITSUPPORT
-    WKWebView * webView = [[WKWebView alloc] initWithFrame: [UIScreen mainScreen].bounds];
-    [self.view addSubview: webView];
-    [webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString: self.url]]];
-#else
-    __weak typeof(self) weakself = self;
-    [self.webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString: self.url]]];
-#endif
-    
-    [LXDDNSInterceptor registerInvalidIpHandle: ^(NSURL *originUrl) {
-#ifdef WEBKITSUPPORT
-        [webView loadRequest: [NSURLRequest requestWithURL: originUrl]];
-#else
-        [weakself.webView loadRequest: [NSURLRequest requestWithURL: originUrl]];
-#endif
-    }];
 }
 
 
