@@ -59,7 +59,11 @@
     self.displayLink = [CADisplayLink displayLinkWithTarget: [LXDWeakProxy proxyWithConsignor: self] selector: @selector(monitor:)];
     [self.displayLink addToRunLoop: [NSRunLoop mainRunLoop] forMode: NSRunLoopCommonModes];
     self.lastTime = self.displayLink.timestamp;
-    self.displayLink.preferredFramesPerSecond = 60;
+    if ([self.displayLink respondsToSelector: @selector(setPreferredFramesPerSecond:)]) {
+        self.displayLink.preferredFramesPerSecond = 60;
+    } else {
+        self.displayLink.frameInterval = 1;
+    }
 }
 
 - (void)stopMonitoring {
