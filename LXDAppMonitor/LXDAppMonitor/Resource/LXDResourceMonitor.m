@@ -65,10 +65,14 @@
         }
         
         if (cpuMonitorEnabled) {
-            self.cpuDisplayer = [[LXDCPUDisplayer alloc] initWithFrame: CGRectMake(80, 30, 60, 20)];
+            self.cpuDisplayer = [[LXDCPUDisplayer alloc] initWithFrame: CGRectMake(0, 30, 60, 20)];
+            CGFloat centerX = round(CGRectGetWidth([UIScreen mainScreen].bounds) / 4);
+            self.cpuDisplayer.center = CGPointMake(centerX, self.cpuDisplayer.center.y);
         }
         if (memoryMonitorEnabled) {
             self.memoryDisplayer = [[LXDMemoryDisplayer alloc] initWithFrame: CGRectMake(CGRectGetWidth([UIScreen mainScreen].bounds) - 140, 30, 60, 20)];
+            CGFloat centerX = round(CGRectGetWidth([UIScreen mainScreen].bounds) / 4 * 3);
+            self.memoryDisplayer.center = CGPointMake(centerX, self.memoryDisplayer.center.y);
         }
     }
     return self;

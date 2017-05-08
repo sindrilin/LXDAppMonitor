@@ -40,12 +40,14 @@ static LXDTopWindow * lxd_top_window;
         [super setWindowLevel: CGFLOAT_MAX];
         
         [[UIApplication sharedApplication].keyWindow addSubview: self];
+        self.rootViewController = [UIViewController new];
         [self makeKeyAndVisible];
     }
     return self;
 }
 
 - (void)setWindowLevel: (UIWindowLevel)windowLevel { }
+- (void)setBackgroundColor: (UIColor *)backgroundColor { }
 - (void)setUserInteractionEnabled: (BOOL)userInteractionEnabled { }
 
 
