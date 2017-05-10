@@ -41,7 +41,7 @@
     int use = usage;
     LXDDispatchQueueAsyncBlockInDefault(^{
         NSMutableAttributedString * attributed = [[NSMutableAttributedString alloc] initWithString: @"CPU" attributes: @{ NSForegroundColorAttributeName: [UIColor whiteColor], NSFontAttributeName: _displayerLabel.font }];
-        [attributed appendAttributedString: [[NSAttributedString alloc] initWithString: [NSString stringWithFormat: @" %d%%", use] attributes: @{ NSFontAttributeName: _displayerLabel.font, NSForegroundColorAttributeName: [UIColor colorWithHue: 0.27 * (0.8 - (use / 100.)) saturation: 1 brightness: 0.9 alpha: 1] }]];
+        [attributed appendAttributedString: [[NSAttributedString alloc] initWithString: [NSString stringWithFormat: @"%d%%", use] attributes: @{ NSFontAttributeName: _displayerLabel.font, NSForegroundColorAttributeName: [UIColor colorWithHue: 0.27 * (0.8 - (use / 100.)) saturation: 1 brightness: 0.9 alpha: 1] }]];
         self.displayerLabel.attributedText = attributed;
     });
 }

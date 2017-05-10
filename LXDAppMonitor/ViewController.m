@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "LXDFPSMonitor.h"
+#import "LXDResourceMonitor.h"
 
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -20,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: @"cell"];
+    
+    [FPS_MONITOR startMonitoring];
+    [RESOURCE_MONITOR startMonitoring];
 }
 
 - (void)viewDidAppear: (BOOL)animated {
