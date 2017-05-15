@@ -16,7 +16,7 @@ static inline NSString * lxd_scheme_selector_suffix() {
 static inline id lxd_context_controller() {
     static Class cls;
     if (!cls) {
-        cls = [[[WKWebView new] valueForKey:@"browsingContextController"] class];
+        cls = [[[NSClassFromString(@"WKWebView") new] valueForKey:@"browsingContextController"] class];
     }
     return cls;
 }
