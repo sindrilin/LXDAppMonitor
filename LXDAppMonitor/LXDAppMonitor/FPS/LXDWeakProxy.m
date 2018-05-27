@@ -29,15 +29,6 @@
         self.consignor = consignor;
     }
     return self;
-    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, self.fpsMonitorQueue);
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-    dispatch_source_set_event_handler(timer, ^{
-        NSArray<NSNumber *> *timestamps = [XXFPSList getContinuousLowFpsTimestampsWithThreshold: 10];
-        for (NSNumber *timestamp in timestamps) {
-            [XXStackFramesUploader uploadStackFrames: [XXStackFramesCache getStackFramesWithTimestamp: timestamp.unsignedIntegerValue] completion: nil];
-        }
-        [XXStackFramesCache clearAllCaches];
-    });
 }
 
 
